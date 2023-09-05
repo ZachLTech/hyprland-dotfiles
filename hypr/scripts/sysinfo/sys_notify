@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cpu=$(~/.config/hypr/scripts/sysinfo/cpu_get)
+mem=$(~/.config/hypr/scripts/sysinfo/mem_get)
+stg=$(~/.config/hypr/scripts/sysinfo/stg_get)
+wif=$(~/.config/hypr/scripts/sysinfo/wif_get)
+bns=$(~/.config/hypr/scripts/sysinfo/bns_get)
+vlm=$(~/.config/hypr/scripts/sysinfo/vlm_get)
+cput=$(~/.config/hypr/scripts/sysinfo/cpu-temp_get)
+
+notify-send "System Info" " $cpu \n $cput \n $mem \n $stg \n $wif \n $bns \n $vlm"

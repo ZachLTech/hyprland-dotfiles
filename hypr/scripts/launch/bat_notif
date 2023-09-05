@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Function to send a notification
+send_notification() {
+    notify-send "Battery Alert" "Level: $1%"
+}
+send_crit() {
+    notify-send -u critical "Battery LOW" "Level: $1%"
+}
+
+# Main loop
+while true; do
+    # Read battery capacity
+    capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+
+    # Check battery levels and send notifications
+    if [ $capacity -eq 50 ] || [ $capacity -eq 40 ] || [ $capacity -eq 30 ]; then
+        send_notification $capacity
+    elif [ $capacity -eq 20 ] || [ $capacity -eq 10 ]; then
+       send_crit $capacity
+    fi
+
+    # Sleep for a while before checking again (in seconds)
+    sleep 60
+done
+

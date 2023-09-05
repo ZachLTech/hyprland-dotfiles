@@ -1,0 +1,6 @@
+#!/bin/bash
+
+storage_used=$(df -H | grep "/dev/nvme0n1p4" | awk '{print $3}' | grep -Eo '[0-9]{1,4}') 
+storage_total=$(df -H | grep "/dev/nvme0n1p4" | awk '{print $2}' | grep -Eo '[0-9]{1,4}')
+
+echo "Storage: $storage_used/$storage_total GB"

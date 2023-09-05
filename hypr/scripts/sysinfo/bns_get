@@ -1,0 +1,5 @@
+#!/bin/bash
+
+brightness_percent=$(brightnessctl | grep "Current brightness:" | awk '{print $4}' | grep -Eo '[0-9]{1,4}')
+
+echo "Brightness: $brightness_percent%"

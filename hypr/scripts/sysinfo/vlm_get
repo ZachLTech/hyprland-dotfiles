@@ -1,0 +1,5 @@
+#!/bin/bash
+
+volume_percent=$(volumectl | grep -Eo '[0-9]{1,4}')
+
+echo "Volume: $volume_percent%"

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# load $WALLPAPER_IMAGE environment variable
+source $HOME/.config/hypr/scripts/variables/load_envs
+
+function load_wp(){
+#    swww img -t fade --transition-duration 0.7 --transition-fps 60 --transition-bezier 0.0,0.0,1.0,1.0 --transition-step 255 $BACKGROUND_IMAGE
+    swww img $BACKGROUND_IMAGE --transition-duration 0.4
+}
+
+#perform cleanup and exit
+if ! swww query; then
+    swww init
+fi
+
+load_wp

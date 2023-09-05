@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Read the current brightness level from the file
+brightness=$(cat /sys/class/leds/asus\:\:kbd_backlight/brightness)
+
+# Check the current brightness level and calculate the new value
+if [ $brightness -eq 0 ] || [ $brightness -eq 1 ] || [ $brightness -eq 2 ]; then
+    new_brightness=$((brightness + 1))
+elif [ $brightness -eq 3 ]; then
+    new_brightness=0
+fi
+
+# Set the new brightness level using brightnessctl
+brightnessctl --device='asus::kbd_backlight' set $new_brightness

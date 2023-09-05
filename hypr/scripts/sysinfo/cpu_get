@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cpu_get=$(ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10 | awk '{print $1}' | grep -P '[0-9]'  | awk '{ SUM += $1} END { print SUM}')
+
+echo "CPU: $cpu_get%"

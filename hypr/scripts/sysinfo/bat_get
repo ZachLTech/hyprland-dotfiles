@@ -1,0 +1,7 @@
+#!/bin/bash
+
+state=`upower -i $(upower -e | grep BAT) | grep --color=never -E "state" | awk '{print $2}'`
+time=`upower -i $(upower -e | grep BAT) | grep --color=never -E "to empty" | cut -c 26-`
+life=`upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | cut -c 26-`
+
+notify-send "Battery" " State: $state \n Time Left: $time \n Life: $life "

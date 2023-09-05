@@ -1,0 +1,20 @@
+#!/bin/bash
+
+wallpaper_folder="$HOME/.config/hypr/wallpapers/"
+
+# Get a list of all image files in the wallpaper folder
+image_files=("$wallpaper_folder"/*.{jpg,jpeg,png,gif})
+
+# Check if there are any image files in the folder
+if [ ${#image_files[@]} -eq 0 ]; then
+    echo "No image files found in the wallpaper folder."
+    exit 1
+fi
+
+# Choose a random image file from the list
+random_image="${image_files[RANDOM % ${#image_files[@]}]}"
+
+# Use feh to set the chosen image as wallpaper
+swww img "$random_image"
+
+echo "Wallpaper set to: $random_image"

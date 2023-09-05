@@ -1,0 +1,6 @@
+#!/bin/bash
+
+fetchHost=$(cat /sys/class/dmi/id/product_name | awk '{print substr($1, length($0)-25)}')
+fetchPkgs=$(paru -Q | wc -l)
+
+notify-send "$(lsb_release -a | grep "Distributor ID" | cut -c 17-)" " Host: $fetchHost \n Uptime: $(uptime -p | awk '{print $2}')d $(uptime -p | awk '{print $4}')h $(uptime -p | awk '{print $6}')m \n Packages: $fetchPkgs"
