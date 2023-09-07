@@ -1,0 +1,21 @@
+00:00:00.258768 VirtualBox GUI VM Selector Window 7.0.10 r158379 linux.amd64 (Aug 11 2023 12:19:51) release log
+00:00:00.258773 Log opened 2023-08-29T04:27:15.285297000Z
+00:00:00.258776 Build Type: release
+00:00:00.258780 OS Product: Linux
+00:00:00.258783 OS Release: 6.1.48-1-lts
+00:00:00.258789 OS Version: #1 SMP PREEMPT_DYNAMIC Sat, 26 Aug 2023 18:20:27 +0000
+00:00:00.258857 DMI Product Name: Zenbook UN5401QAB_UN5401QA
+00:00:00.258875 DMI Product Version: 1.0       
+00:00:00.258889 Firmware type: UEFI
+00:00:00.259153 Secure Boot: Disabled
+00:00:00.259208 Host RAM: 15394MB (15.0GB) total, 11901MB (11.6GB) available
+00:00:00.259214 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:00.259216 Process ID: 34321
+00:00:00.259218 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.259266 Qt version: 5.15.10
+00:00:00.260379 GUI: UIMediumEnumerator: Initial medium-enumeration finished!
+00:00:00.263950 GUI: UIMediumEnumerator: Medium-enumeration started...
+00:00:00.263974 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:00:00.629155 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 3280x1602 x 800x500
+00:00:58.319129 QDBus error. No screen saver service found among registered DBus services.QDBus error. No screen saver service found among registered DBus services.GUI: UICommon: Handling aboutToQuit request..
+00:11:54.856777 GUI: UICommon: aboutToQuit request handled!

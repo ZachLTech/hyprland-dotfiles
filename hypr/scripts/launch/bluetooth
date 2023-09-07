@@ -1,0 +1,96 @@
+#!/bin/bash
+
+function show_menu() {
+    clear
+    echo "Starting..."
+    sleep 2
+    systemctl start bluetooth
+    bluetoothctl power on
+    while true; do
+        clear
+        echo "
+             ,,,,,,,,,,,,,,,                 
+         ,,,,,,,,,,,,,,,,,,,,,,,        
+      ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,     
+    ,,,,,,,,,,,,,,*,,,,,,,,,,,,,,,,,,   
+  ,,,,,,,,,,,,,,,,*@@,,,,,,,,,,,,,,,,,, 
+ ,,,,,,,,,,,,,,,,,*@@@@*,,,,,,,,,,,,,,,,
+ ,,,,,,,,,,,,,,,,,*@@@@@@@,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,*@@@,@@@@@,,,,,,,,,,,,,
+,,,,,,,,,,,@,,,,,,*@@@,,,,@@@@,,,,,,,,,,,
+,,,,,,,,,,@@@@,,,,*@@@,,,,@@@@@,,,,,,,,,,
+,,,,,,,,,,,,@@@@@,*@@@,,@@@@@,,,,,,,,,,,,
+,,,,,,,,,,,,,,,@@@@@@@@@@@,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,@@@@@@/,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,@@@@@@@@,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,@@@@*@@@@@@@@,,,,,,,,,,,,,,
+,,,,,,,,,,,@@@@@,,*@@@,,,@@@@,,,,,,,,,,,,
+,,,,,,,,,,@@@,,,,,*@@@,,,,,@@@@*,,,,,,,,,
+,,,,,,,,,,,,,,,,,,*@@@,,,@@@@,,,,,,,,,,,,
+ ,,,,,,,,,,,,,,,,,*@@@,@@@@,,,,,,,,,,,,,
+ ,,,,,,,,,,,,,,,,,*@@@@@@,,,,,,,,,,,,,,,
+  ,,,,,,,,,,,,,,,,*@@@@,,,,,,,,,,,,,,,, 
+   ,,,,,,,,,,,,,,,*@@,,,,,,,,,,,,,,,,,  
+     ,,,,,,,,,,,,,*,,,,,,,,,,,,,,,,,    
+        ,,,,,,,,,,,,,,,,,,,,,,,,,       
+            ,,,,,,,,,,,,,,,,, "
+        echo "
+Thje Bleuetoeth Dyevice Ith Rryedey To Pyair"
+        echo "
+============================================"
+        echo "1. Scan"
+        echo "2. Connect"
+        echo "3. Disconnect"
+        echo "4. Remove"
+        echo "5. Quit"
+        read -p ": " choice
+        case $choice in
+            1)
+                bluetoothctl scan on
+                read -n 1 -s -r -p "Press Q to stop scanning..."
+                bluetoothctl scan off
+                ;;
+            2)
+                read -p "Enter the device name to connect: " device_name
+                mac_address=$(bluetoothctl devices | grep "$device_name" | awk '{print $2}')
+                if [ -n "$mac_address" ]; then
+                    bluetoothctl pair "$mac_address"
+                    bluetoothctl connect "$mac_address"
+                    read -n 1 -s -r -p "Press any key to continue..."
+                else
+                    echo "Device not found."
+                fi
+                ;;
+            3)
+                read -p "Enter the device name to disconnect: " device_name
+                mac_address=$(bluetoothctl devices | grep "$device_name" | awk '{print $2}')
+                if [ -n "$mac_address" ]; then
+                    bluetoothctl disconnect "$mac_address"
+                    read -n 1 -s -r -p "Press any key to continue..."
+                else
+                    echo "Device not found."
+                fi
+                ;;
+            4)
+                read -p "Enter the device name to remove: " device_name
+                mac_address=$(bluetoothctl devices | grep "$device_name" | awk '{print $2}')
+                if [ -n "$mac_address" ]; then
+                    bluetoothctl disconnect "$mac_address"
+                    bluetoothctl remove "$mac_address"
+                    read -n 1 -s -r -p "Press any key to continue..."
+                else
+                    echo "Device not found."
+                fi
+                ;;
+            5)
+                echo "Quitting..."
+                exit 0
+                ;;
+            *)
+                echo "Invalid choice. Please select again."
+                ;;
+        esac
+    done
+}
+
+show_menu

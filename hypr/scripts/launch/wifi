@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# List available WiFi networks
+nmcli dev wifi list
+
+# Ask user to input the desired network SSID
+read -p "Enter the SSID of the network you want to connect to: " ssid
+
+# Ask user to input the network password
+read -s -p "Enter the password for the network: " password
+echo
+
+# Connect to the selected network using nmcli
+sudo nmcli dev wifi connect "$ssid" password "$password"
+
+echo "Connection attempt to \"$ssid\" completed."
+

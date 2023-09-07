@@ -1,0 +1,23 @@
+#/bin/bash
+
+#Install Paru
+sudo pacman -S --needed base-devel git
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+cd ..
+rm -r paru
+paru
+
+#install packages
+paru -S hyprland kitty ranger wofi swaylock-effects firefox discord virtualbox swww hyprshot hybrid-bar upower brightnessctl volumectl dunst bat acpi iw pfetch visual-studio-code-bin vencord gh 
+
+#install rwp, wifi, & bluetooth
+cd background/
+mv random_wallpaper rwp
+sudo cp rwp /bin/
+cd ..
+cd launch/
+sudo cp bluetooth /bin/
+sudo cp wifi /bin/
+
