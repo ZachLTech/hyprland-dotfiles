@@ -1,6 +1,7 @@
 {
    "hybrid": {
         "namespace": "hybrid-bar",
+	"expand_right": "True",
         "r": 10,
         "g": 10,
         "b": 10,
