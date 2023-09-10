@@ -10,7 +10,7 @@ rm -r paru
 paru
 
 #install packages
-paru -S hyprland kitty ranger wofi swaylock-effects firefox discord virtualbox swww hyprshot hybrid-bar upower brightnessctl volumectl dunst bat acpi iw pfetch visual-studio-code-bin vencord parui-git github-cli minecraft-launcher jre10 jre-openjdk blueberry-wayland
+paru -S hyprland kitty ranger wofi swaylock-effects firefox discord virtualbox swww hyprshot hybrid-bar nautilus upower brightnessctl volumectl dunst bat acpi iw pfetch visual-studio-code-bin vencord parui-git github-cli minecraft-launcher jre10 jre-openjdk blueberry-wayland
 
 #install rwp, wifi, & bluetooth
 cd background/
