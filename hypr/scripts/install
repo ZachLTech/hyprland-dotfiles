@@ -10,7 +10,7 @@ rm -r paru
 paru
 
 #install packages
-paru -S hyprland kitty ranger wofi swaylock-effects firefox discord virtualbox swww hyprshot hybrid-bar upower brightnessctl volumectl dunst bat acpi iw pfetch visual-studio-code-bin vencord github-cli minecraft-launcher jre10 jre-openjdk blueberry-wayland
+paru -S hyprland kitty ranger wofi swaylock-effects firefox discord virtualbox swww hyprshot hybrid-bar upower brightnessctl volumectl dunst bat acpi iw pfetch visual-studio-code-bin vencord parui-git github-cli minecraft-launcher jre10 jre-openjdk blueberry-wayland
 
 #install rwp, wifi, & bluetooth
 cd background/
@@ -20,13 +20,14 @@ cd ..
 cd launch/
 sudo cp bluetooth /bin/
 sudo cp wifi /bin/
+cp 
 
 cd ../../../
-cp hypr ~/.config
-cp HybridBar ~/.config
-cp Vencord ~/.config
-cp VirtualBox ~/.config
-cp dunst ~/.config
-cp kitty ~/.config
-cp swaylock ~/.config
-cp wofi ~/.config
+cp -r hypr ~/.config
+cp -r HybridBar ~/.config
+cp -r Vencord ~/.config
+cp -r VirtualBox ~/.config
+cp -r dunst ~/.config
+cp -r kitty ~/.config
+cp -r swaylock ~/.config
+cp -r wofi ~/.config
