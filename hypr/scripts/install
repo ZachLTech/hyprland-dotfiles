@@ -35,6 +35,4 @@ cp -r wofi ~/.config
 cp -r starship ~/.config
 
 clear
-echo -e "
-Successfully Installed Zach's Dotfiles. \n\nNow Your Part:\n- edit .bashrc and add \n\n
- "
+echo -e "Successfully Installed Zach's Dotfiles.\n\n"
