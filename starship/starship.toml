@@ -1,0 +1,130 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# format = '''
+# $username$hostname$directory$git_branch$git_status
+# └─$character
+# '''
+format = '''
+[┌──$username$hostname-$directory](bold 79)$git_branch$git_status
+[└─](bold 79)$character
+'''
+
+# format = '''
+# [$directory─$git_branch$git_status$character](bold 7)
+# '''
+
+right_format = "$os$sudo$battery"
+
+
+# Main Modules
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '󰂄 '
+discharging_symbol = '󱟤 '
+
+[[battery.display]]
+threshold = 10
+style = 'bold 124'
+[[battery.display]]
+threshold = 20
+style = 'bold 215'
+[[battery.display]]
+threshold = 30
+style = 'bold 214'
+[[battery.display]]
+threshold = 50
+style = 'bold 142'
+[[battery.display]]
+threshold = 100
+style = 'bold 114'
+
+[character] 
+# success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+format = "[\\$](bold 26) "
+
+[cmd_duration]
+min_time = 1000
+format = "[${duration}]($style)"
+disabled = true
+
+[directory]
+truncation_length = 0
+# format = "[$home_symbol$path]($style)[$read_only]($read_only_style) "
+format = "[\\[](bold 79)[$home_symbol$path]($style)[\\]](bold 79)"
+home_symbol = "~"
+style = 'bold white'
+
+[fill]
+symbol = '─'
+style = 'bold 141'
+
+[git_branch]
+format = " [\\($symbol$branch\\)]($style) "
+symbol = " "
+style = 'bold 111'
+disabled = false
+
+[git_status]
+format ="([\\[$all_status$ahead_behind\\]]($style) )"
+style = 'bold 111'
+conflicted = '='
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+up_to_date = '✓'
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '✘'
+
+[hostname]
+ssh_only = false
+format = "[@$hostname](bold 26)[\\)](bold 79)"
+# trim_at = '.companyname.com'
+disabled = false
+
+[os]
+format ="[$symbol]($style)"
+style = 'bold 141'
+disabled = false
+
+[os.symbols]
+Android = " "
+Arch = "  "
+Artix = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Linux = ""
+NixOS = " "
+Raspbian = ""
+Ubuntu = " "
+Unknown = " "
+Windows = " "
+
+[sudo]
+format = "[$symbol]($style)"
+style = 'bold 111'
+symbol = ''
+disabled = false
+
+[username]
+format = "\\([$user](bold 26)"
+style_user = "bold 141"
+style_root = "bold 111"
+disabled = false
+show_always = true
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true

@@ -1,0 +1,3 @@
+# Starship
+eval "$(starship init bash)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+life=`upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | cut -c 26-`
+date=`date '+%-I:%M %p'`
+
+echo -e "$date \t $life"

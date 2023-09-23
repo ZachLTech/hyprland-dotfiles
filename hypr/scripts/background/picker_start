@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Define the command to run Wofi
+wofi_command="~/.config/hypr/scripts/background/wallpaper_picker"
+
+# Find the PID of the existing Wofi instance
+existing_pid=$(pgrep -x wofi)
+
+if [ -n "$existing_pid" ]; then
+    # If an existing PID is found, kill the Wofi process
+    echo "Closing existing Wofi instance (PID: $existing_pid)..."
+    kill "$existing_pid"
+fi
+
+# Run a new instance of Wofi
+echo "Starting a new instance of Wofi..."
+eval "$wofi_command"
