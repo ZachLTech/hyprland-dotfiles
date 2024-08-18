@@ -10,7 +10,7 @@ rm -r paru
 paru
 
 #install packages
-paru -S hyprland kitty ranger wofi swaylock-effects firefox discord virtualbox swww hyprshot hybrid-bar nautilus upower brightnessctl volumectl dunst bat acpi iw pfetch code vencord parui-git github-cli minecraft-launcher jre10 jre-openjdk blueberry-wayland starship fish
+paru -S hyprland kitty ranger wofi swaylock-effects firefox discord virtualbox swww hyprshot hybrid-bar nautilus upower brightnessctl volumectl dunst bat acpi iw pfetch visual-studio-code-bin vencord parui-git github-cli minecraft-launcher jre10 jre-openjdk blueberry-wayland bc
 
 #install rwp, wifi, & bluetooth
 cd background/
@@ -20,8 +20,7 @@ cd ..
 cd launch/
 sudo cp bluetooth /bin/
 sudo cp wifi /bin/
-
-cat bashrcappend >> ~/.bashrc
+cp 
 
 cd ../../../
 cp -r hypr ~/.config
@@ -32,7 +31,3 @@ cp -r dunst ~/.config
 cp -r kitty ~/.config
 cp -r swaylock ~/.config
 cp -r wofi ~/.config
-cp -r starship ~/.config
-
-clear
-echo -e "Successfully Installed Zach's Dotfiles.\n\n"
